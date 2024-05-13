@@ -107,7 +107,21 @@
             background-color: #f0f0f0;
             box-shadow: 1px 1px 15px #0200001c;
         }
-
+        .subscribe-btn{
+            background-color: #1166ca;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 10rem;
+            align-self: center;
+            transition: background-color 0.3s;
+        }
+        .subscribe-btn:hover{
+            background-color: #0a4b8e;
+        }
         main .right-section {
             padding-right: 30px;
             margin-right: 0.1rem;
@@ -234,7 +248,7 @@
 
         .linguagens {
             width: 91%;
-            height: 20rem;
+            height: 10rem;
         }
 
         .row {
@@ -376,8 +390,11 @@
             border-radius: 10px;
             margin: 40px auto;
             max-width: 600px;
+            text-align: center;
         }
-
+        .input-box{
+            text-align: left;
+        }
         input[type="email"],
         input[type="text"],
         input[type="number"] {
@@ -466,6 +483,7 @@
                     inscreva e vamos conferir juntos o que as ONGs estão
                     precisando!
                 </div>
+                <button class="subscribe-btn" onclick="scrollToForm()">Inscreva-se</button>
             </div>
             <div class="right-section">
                 <div class="form-image">
@@ -481,7 +499,6 @@
                 </div>
             </div>
         </div>
-
         <div class="causas-container">
             <div class="causas-item">
                 <img src="../CSS/imagens/foto fome.jpeg" alt="" />
@@ -627,8 +644,6 @@
                             <path fill="#fff" fill-rule="evenodd" d="M29 23H35V25H29zM36 23H42V25H36z"
                                 clip-rule="evenodd"></path>
                         </svg>C++</div>
-                </div>
-                <div class="row">
                     <div class="tags"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
                             viewBox="0,0,256,256">
                             <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -691,6 +706,7 @@
                             </path>
                         </svg>TypeScript</div>
                 </div>
+
             </div>
         </div>
         <div class="login">
@@ -739,9 +755,17 @@
         <div id="form-section" class="form-container">
             <h2>Inscreva-se para receber mais informações</h2>
             <form>
-                <input type="text" id="nome" placeholder="Seu nome" required>
-                <input type="email" id="email" placeholder="Seu email" required>
-                <input type="number" id="tel" placeholder="Seu telefone">
+                <div class="input-box">
+                    <input type="text" id="nome" placeholder="Seu nome" required>
+                    <input type="email" id="email" placeholder="Seu email" required>
+                    <input type="number" id="tel" placeholder="Seu telefone">
+                    <div class="check-box">
+                        <input type="checkbox" name="type" id="type">
+                        <label for="">ONG</label>
+                        <input type="checkbox" name="type" id="type">
+                        <label for="">Aluno</label>
+                    </div>
+                </div>
                 <button class="form-btn" onclick="inscrever(event)">Inscrever-se</button>
             </form>
         </div>
@@ -812,6 +836,11 @@
         }
 
         type();
+
+        function scrollToForm() {
+            const formSection = document.getElementById('form-section');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+          }
 
         function inscrever(event) {
             event.preventDefault()
