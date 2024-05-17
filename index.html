@@ -13,6 +13,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
 
     <title>VolunteerCoders</title>
     <style>
@@ -39,6 +45,7 @@
         .initial-section {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
 
         .initial-section img {
@@ -107,7 +114,8 @@
             background-color: #f0f0f0;
             box-shadow: 1px 1px 15px #0200001c;
         }
-        .subscribe-btn{
+
+        .subscribe-btn {
             background-color: #1166ca;
             color: #fff;
             padding: 12px 30px;
@@ -119,9 +127,11 @@
             align-self: center;
             transition: background-color 0.3s;
         }
-        .subscribe-btn:hover{
+
+        .subscribe-btn:hover {
             background-color: #0a4b8e;
         }
+
         main .right-section {
             padding-right: 30px;
             margin-right: 0.1rem;
@@ -392,9 +402,11 @@
             max-width: 600px;
             text-align: center;
         }
-        .input-box{
+
+        .input-box {
             text-align: left;
         }
+
         input[type="email"],
         input[type="text"],
         input[type="number"] {
@@ -439,24 +451,94 @@
         .form-container {
             visibility: hidden;
         }
+
+
+
+
+        @media (max-width: 768px) {
+
+            /* Estilos para dispositivos móveis */
+            .initial-section {
+                text-align: center;
+            }
+
+            .blue-bar {
+                display: none;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .causas-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .causas-item img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .causas-item:hover {
+                width: 6rem;
+                height: 6rem;
+            }
+
+            .card {
+                width: 25rem;
+
+            }
+
+            .right-section {
+                order: -1;
+
+            }
+
+            .info {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+            }
+
+            .cards {
+                margin: 0%;
+                padding-top: 2rem;
+                padding-left: 7rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .form-image {
+                border-radius: 0;
+            }
+
+            .subscribe-btn {
+                margin-left: 3.5rem;
+            }
+
+            .causas-item:hover .causas-overlay {
+                display: none;
+            }
+
+        }
     </style>
 </head>
 
 <body>
     <div class="initial-section">
-        <h5>
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        </h5>
         <img src="../CSS/imagens/icon.png" alt="" />
-        <h4>
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        </h4>
     </div>
     <main>
         <div class="info">
             <div class="cards">
                 <div class="blue-bar">
-
                 </div>
 
                 <div class="card">
@@ -500,60 +582,64 @@
             </div>
         </div>
         <div class="causas-container">
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto fome.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Fome</h3>
-                    <!-- <p>Ajude a defender essa causa</p> -->
+            <div class="row-causa">
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto fome.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Fome</h3>
+                        <!-- <p>Ajude a defender essa causa</p> -->
+                    </div>
+                </div>
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto lgbtqiap+.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>LGBTQIAP+</h3>
+                        <!-- <p>Texto da imagem 2</p> -->
+                    </div>
+                </div>
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto alunos.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Crianças</h3>
+                        <!-- <p>Texto da imagem 3</p> -->
+                    </div>
+                </div>
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto naatureza.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Natureza</h3>
+                        <!-- <p>Texto da imagem 4</p> -->
+                    </div>
                 </div>
             </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto lgbtqiap+.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>LGBTQIAP+</h3>
-                    <!-- <p>Texto da imagem 2</p> -->
+            <div class="row-causa">
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto animais.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Animais</h3>
+                        <!-- <p>Texto da imagem 5</p> -->
+                    </div>
                 </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto alunos.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Crianças</h3>
-                    <!-- <p>Texto da imagem 3</p> -->
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto educação.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Educação</h3>
+                        <!-- <p>Texto da imagem 6</p> -->
+                    </div>
                 </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto naatureza.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Natureza</h3>
-                    <!-- <p>Texto da imagem 4</p> -->
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto pobreza.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Pobreza</h3>
+                        <!-- <p>Texto da imagem 7</p> -->
+                    </div>
                 </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto animais.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Animais</h3>
-                    <!-- <p>Texto da imagem 5</p> -->
-                </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto educação.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Educação</h3>
-                    <!-- <p>Texto da imagem 6</p> -->
-                </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto pobreza.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Pobreza</h3>
-                    <!-- <p>Texto da imagem 7</p> -->
-                </div>
-            </div>
-            <div class="causas-item">
-                <img src="../CSS/imagens/foto clima.jpeg" alt="" />
-                <div class="causas-overlay">
-                    <h3>Clima</h3>
-                    <!-- <p>Texto da imagem 8</p> -->
+                <div class="causas-item">
+                    <img src="../CSS/imagens/foto clima.jpeg" alt="" />
+                    <div class="causas-overlay">
+                        <h3>Clima</h3>
+                        <!-- <p>Texto da imagem 8</p> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -840,7 +926,7 @@
         function scrollToForm() {
             const formSection = document.getElementById('form-section');
             formSection.scrollIntoView({ behavior: 'smooth' });
-          }
+        }
 
         function inscrever(event) {
             event.preventDefault()
