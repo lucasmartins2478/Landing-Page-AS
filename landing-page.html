@@ -313,16 +313,14 @@
         }
 
         .como_comecar_aluno h1 {
-
+            margin-left: 1rem;
             color: #1166ca;
             font-weight: 900;
-            margin-left: 3rem;
             font-size: 35px;
 
         }
 
         .como_comecar_ong li {
-            margin-left: 20px;
             margin-top: 0px;
             color: #000000;
             font-weight: 700;
@@ -331,9 +329,10 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
-
+        .como_comecar_aluno{
+            padding-left: 5rem;
+        }
         .como_comecar_aluno li {
-            margin-left: 50px;
             margin-top: 0px;
             color: #000000;
             font-weight: 700;
@@ -341,6 +340,7 @@
             position: relative;
             font-size: 16px;
             margin-bottom: 10px;
+            margin-left: -1rem;
         }
 
        
@@ -355,7 +355,7 @@
         }
 
         .como_comecar_aluno h4 {
-            margin-left: 3rem;
+            margin-left: 1rem;
             color: #4e81b4;
             font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
                 sans-serif;
@@ -517,7 +517,6 @@
             #imagem {
                 order: -1;
                 display: flex;
-
             }
 
             .form-image {
@@ -626,12 +625,16 @@
            .como_comecar_ong li{
                 margin-left: -1rem;
            }
-
+           #aluno-btn{
+            margin-left: 1rem;
+           }
         }
 
+        .como_comecar_aluno{
+            padding-left: 1.5rem;
+        }
 
-
-
+        
 
         @media (max-width: 400px) {
             #title img {
@@ -943,6 +946,7 @@
                         projeto
                     </li>
                 </ul>
+                <button class="subscribe-btn" id="aluno-btn" onclick="scrollToForm()">Inscreva-se</button>
 
             </div>
             <div class="como_comecar_aluno">
@@ -967,7 +971,7 @@
                     </li>
                     <li><i class="bi bi-arrow-right-circle"></i>Desenvolver!!</li>
                 </ul>
-
+                <button class="subscribe-btn" onclick="scrollToForm()" style="margin-left: 1rem;">Inscreva-se</button>
             </div>
         </div>
         <div id="form-section" class="form-container">
@@ -979,7 +983,7 @@
                     <input type="number" id="tel" placeholder="Seu telefone">
 
                 </div>
-                <button class="form-btn" onclick="inscrever(event)">Inscrever-se</button>
+                <button class="form-btn" id="save-btn">Inscrever-se</button>
             </form>
         </div>
         <footer>&copy;VolunteerCoders 2024</footer>
@@ -1026,32 +1030,55 @@
         }
 
 
-        function inscrever(event) {
-            event.preventDefault()
-            var nome = document.querySelector('#nome').value
-            var email = document.querySelector('#email').value
+        
 
 
-            if (nome == "" || email == "") {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro',
-                    text: 'Preencha todos os campos.'
+        document.getElementById('save-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Impede o envio do formulário pelo método padrão
+
+            // Coleta os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const tel = document.getElementById('tel').value;
+
+            // Cria um objeto com os dados do usuário
+            const userData = {
+                nome: nome,
+                email: email,
+                telefone: tel
+            };
+
+            // Define a URL para onde os dados serão enviados
+            const url = 'https://664d0a0cede9a2b556527d60.mockapi.io/api/v1/users';
+
+            // Faz a requisição POST usando Fetch API
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Email enviado',
+                        text: 'Enviaremos um email para mais informações.'
+                    })
+                    document.querySelector('#nome').value = ""
+                    document.querySelector('#email').value = ""
+                    document.querySelector('#tel').value = ""
+
                 })
-
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Email enviado',
-                    text: 'Enviaremos um email para mais informações.'
-                }).then(() => {
-                    window.location.href = '';
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: 'Preencha todos os campos.'
+                    })
                 });
-
-            }
-            document.querySelector('#nome').value = ""
-            document.querySelector('#email').value = ""
-        }
+        });
     </script>
 </body>
 
