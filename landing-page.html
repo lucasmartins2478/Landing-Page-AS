@@ -59,15 +59,22 @@
         }
 
         .col-11 {
-            margin-top: 3rem;
-            margin-right: -35rem;
+            margin-top: 1rem;
+            margin-right: -38.5rem;
         }
 
-        .col-11 button:hover {
-            background-color: #0a4b8e;
+    
+        .scroll{
+            border: none;
+            background-color: transparent;
+            color: #1166ca;
+            margin:2.5rem;
         }
-
-
+        .scroll:hover{
+            color: #1166ca;
+            background-color: #dce4ec;
+        }
+        
         #cards {
             display: flex;
             flex-direction: column;
@@ -656,8 +663,8 @@
             </div>
             <div class="col-11" id="nav-links">
                 <a href="#">Sobre</a>
-                <a href="#">ONGs</a>
-                <a href="#">Alunos</a>
+                <button class="scroll" onclick="scrollToOng()">ONGs</button>
+                <button class="scroll" onclick="scrollToOng()">Aluno</button>
                 <a href="#">Contato</a>
                 <button type="button" class="btn btn-primary"
                     style="background-color: #1166ca; color: #fff;">Login</button>
@@ -1027,6 +1034,10 @@
         function scrollToForm() {
             const formSection = document.getElementById('form-section');
             formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        function scrollToOng() {
+            const ongSection = document.querySelector('.como_comecar_ong');
+            ongSection.scrollIntoView({ behavior: 'smooth' });
         }
 
 
