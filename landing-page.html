@@ -1051,7 +1051,14 @@
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const tel = document.getElementById('tel').value;
-
+            if(nome == "" || email == "" || tel == ""){
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: 'Preencha todos os campos.'
+                    })
+                return
+            }
             // Cria um objeto com os dados do usuário
             const userData = {
                 nome: nome,
