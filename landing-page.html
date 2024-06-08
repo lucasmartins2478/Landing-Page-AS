@@ -1110,7 +1110,9 @@
                         icon: 'success',
                         title: 'Email enviado',
                         text: 'Enviaremos um email para mais informações.'
-                    })
+                    }).then(() => {
+                        window.location.href = 'https://forms.gle/wgA2D7oWhjYc3f618';
+                        });
                     document.querySelector('#nome').value = ""
                     document.querySelector('#email').value = ""
                     document.querySelector('#tel').value = ""
